@@ -1,3 +1,4 @@
 config.ini
 *.json
 *__pycache__
+*.xlsx

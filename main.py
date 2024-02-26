@@ -1,5 +1,5 @@
-from classes.Selenium_Exec import *
-from classes.Trello_Manager import *
+from srcs.classes.Selenium_Exec import *
+from srcs.classes.Trello_Manager import *
 from datetime import datetime
 import re
 
