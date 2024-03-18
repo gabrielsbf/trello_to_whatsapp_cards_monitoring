@@ -16,8 +16,10 @@ class Selenium_Manager:
 		self.options.add_argument(CHROME_DATA_PATH)
 		self.driver = webdriver.Chrome(options=self.options,
 									   service=s)
-		self.driver.get(self.url)
 
+	def access_url(self):
+		self.driver.get(self.url)
+		
 	def access_field(self, type : By, elem, time_to_wait):
 		self.driver.implicitly_wait(time_to_wait)
 		elem = self.driver.find_element(type, elem)
