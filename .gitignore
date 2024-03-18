@@ -2,3 +2,4 @@ config.ini
 *.json
 *__pycache__
 *.xlsx
+chrome_data/

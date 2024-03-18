@@ -1,4 +1,4 @@
-CHROME_DATA_PATH = "user-data-dir=C:\\Users\\movem\\AppData\\Local\\Google\\Chrome\\User Data"
+CHROME_DATA_PATH = "user-data-dir=chrome_data"
 
 CONFIG_PATH = "./utils/config.ini"
 
