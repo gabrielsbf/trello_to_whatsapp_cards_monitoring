@@ -84,22 +84,22 @@ class TrelloManager:
 				json_obj = self.board
 		return json_obj
 
+	def write_json_file(self, json_obj, file_name, folder='.'):
+		json_parse = json.dumps(json_obj)
+		with open(folder + '/' + file_name + '.json', 'w') as json_file:
+			json_file.write(json_parse)
+
+	def load_json_file(self, file_name, folder='.'):
+		with open(folder + '/' +  file_name + '.json') as json_obj:
+			data = json.load(json_obj)
+			return data
+
 	def write_or_load(self, method, type):
-
-		def write_json_file(json_obj, file_name, folder='.'):
-			json_parse = json.dumps(json_obj)
-			with open(folder + '/' + file_name + '.json', 'w') as json_file:
-				json_file.write(json_parse)
-
-		def load_json_file(file_name, folder='.'):
-			with open(folder + '/' +  file_name + '.json') as json_obj:
-				data = json.load(json_obj)
-				return data
-
 		if method == 'write':
-			write_json_file(self.definig_types(type), self.workspace_name + "_" + type, self.board_path)
+			self.write_json_file(self.definig_types(type), self.workspace_name + "_" + type, self.board_path)
+			return 0
 		elif method == 'load':
-			return load_json_file(self.workspace_name + "_" + type, self.board_path)
+			return self.load_json_file(self.workspace_name + "_" + type, self.board_path)
 
 	#that definition can be used to display any changes on a field - may show an old card that has been changed
 	def have_new_data(self, type):
@@ -125,12 +125,10 @@ class TrelloManager:
 		else:
 			return [True, result]
 
-
 	def trello_text(self, json_obj):
 		separator = '-----------------------------------------------------'
 		text = f"""{datetime.now().strftime("%d/%m/%Y %H:%M:%S")} - NOVO(s) CARD(s) TRELLO\n{separator}
 		"""
-
 
 		for cat in json_obj:
 			header = "Título do Card: " + cat['name']

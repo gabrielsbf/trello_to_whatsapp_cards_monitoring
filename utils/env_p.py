@@ -2,9 +2,9 @@ CHROME_DATA_PATH = "user-data-dir=C:\\Users\\movem\\AppData\\Local\\Google\\Chro
 
 CONFIG_PATH = "./utils/config.ini"
 
-CHROME_EXE_PATH = './utils'
+BOARDS_JSON_PATH = './data/boards/'
 
-BOARDS_JSON_PATH = './utils/boards'
+BOARD_MOVEMENTES_PATH = BOARDS_JSON_PATH + "MOVEMENTES/"
 
 WP_AUTO={
     'FIND_CHAT': '//p[@class="selectable-text copyable-text x15bjb6t x1n2onr6"]',

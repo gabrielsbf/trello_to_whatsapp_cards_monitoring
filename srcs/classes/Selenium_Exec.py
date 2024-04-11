@@ -1,4 +1,4 @@
-from time import sleep
+
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
@@ -14,12 +14,15 @@ class Selenium_Manager:
 		self.options = webdriver.ChromeOptions()
 		s = Service(ChromeDriverManager().install())
 		self.options.add_argument(CHROME_DATA_PATH)
+		self.options.add_argument('--headless')
+		self.options.add_argument('--disable-gpu')
+		self.options.add_argument('user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36')
 		self.driver = webdriver.Chrome(options=self.options,
 									   service=s)
 
 	def access_url(self):
 		self.driver.get(self.url)
-		
+
 	def access_field(self, type : By, elem, time_to_wait):
 		self.driver.implicitly_wait(time_to_wait)
 		elem = self.driver.find_element(type, elem)
